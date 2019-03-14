@@ -76,7 +76,5 @@
         @yield('content')
     </main>
 </div>
- {{--@include('layouts.script')--}}
- {{--@stack('script')--}}
 </body>
 </html>

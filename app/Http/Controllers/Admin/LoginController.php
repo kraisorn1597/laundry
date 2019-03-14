@@ -28,13 +28,7 @@ class LoginController extends Controller
      */
     protected $redirectTo = 'admin/home';
 
-    protected function validateLogin(Request $request)
-    {
-        $request->validate([
-            $this->username() => 'required|string',
-            'password' => 'required|string',
-        ]);
-    }
+
 //
     public function username()
     {
@@ -62,23 +56,23 @@ class LoginController extends Controller
         $this->middleware('guest:admin')->except('logout');
     }
 
-//    protected function sendLoginResponse(Request $request)
-//    {
-//        $request->session()->regenerate();
-//
-//        $this->clearLoginAttempts($request);
-//
-//        foreach ($this->guard()->user()->role as $role)
-//        {
-//            if($role->name == 'admin')
-//            {
-//                return redirect('admin/home');
-//            }
-//            elseif ($role->name == 'editor')
-//            {
-//                return redirect('admin/editor');
-//            }
-//        }
-//    }
+    protected function sendLoginResponse(Request $request)
+    {
+        $request->session()->regenerate();
+
+        $this->clearLoginAttempts($request);
+
+        foreach ($this->guard()->user()->role as $role)
+        {
+            if($role->name == 'Admin')
+            {
+                return redirect('admin/home');
+            }
+            elseif ($role->name == 'Editor')
+            {
+                return redirect('admin/editor');
+            }
+        }
+    }
 
 }
