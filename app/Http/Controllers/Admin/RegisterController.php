@@ -63,7 +63,7 @@ class RegisterController extends Controller
             'tel' => ['required','string','max:20'],
             'birthday' => ['required'],
             'address' => ['required','string','max:255'],
-            'salary' => ['nullable','string','max:100']
+            'salary' => ['nullable','numeric','max:100']
         ]);
     }
 

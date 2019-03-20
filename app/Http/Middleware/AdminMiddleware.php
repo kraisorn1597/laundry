@@ -17,11 +17,11 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        foreach (Auth::user()->role as $role)
-            if ($role->name == 'Admin')
-            {
+//        foreach (Auth::user()->roles as $role)
+//            if ($role->name == 'Admin')
+//            {
                 return $next($request);
-            }
-        return redirect('admin/editor');
+//            }
+//        return redirect('admin/home');
     }
 }

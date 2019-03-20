@@ -13,8 +13,8 @@ class Role extends Model
         'name',
     ];
 
-//    public function admin()
-//    {
-//        return $this->belongsToMany(Admin::class);
-//    }
+    public function admin()
+    {
+        return $this->belongsToMany(Admin::class);
+    }
 }
